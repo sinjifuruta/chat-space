@@ -3,31 +3,34 @@
   .main_header
     .main_header__leftbox
       .main_header__leftbox__current-group
-        アメリカ
+        =@group.name
       .main_header__leftbox__member
         .main_header__leftbox__member-list
           Member
         .main_header__leftbox__member-list__member
-          イチロースズキ
-    = link_to "#", class:"main_header__edit-btn" do
+          - @group.users.each do |user| 
+            =user.name
+    = link_to edit_group_path(@group.id), class:"main_header__edit-btn" do
       Edit
 
   .messages
-    .message
-      .message__upper-info
-        .message__upper-info__talker
-          aaa
-        .message__upper-info__date
-          yyyyyyyy
-      .message__text
-        アメリカ横断ウルトラクイズ
+    = render @messages
+    
 
   .form
-    %form.new_message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placefolder: "type a message"}
-        %label{class: "input-box__image"}
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
           = icon('fas', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"}
+          = f.file_field :image, class: 'input-box__image__file'   
+      = f.submit 'Send', class: 'submit-btn'
       
+  -# .form
+  -#   = form_for [@group, @message] do |f|
+  -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+  -#     .form__mask
+  -#       = f.label :image, class: 'form__mask__image' do
+  -#         = icon('fas', 'image', class: 'icon')
+  -#         = f.file_field :image, class: 'hidden'
+  -#     = f.submit 'Send', class: 'form__submit'
