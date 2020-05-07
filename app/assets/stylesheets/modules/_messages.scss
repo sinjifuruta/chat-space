@@ -6,7 +6,6 @@
   background-color: #2f3e51;
   width: 300px;
   height: 100vh;
-  float: left;
   color: white;
   .side-header {
     background-color: #253141;
@@ -55,11 +54,9 @@
   
 .main_chat {
   width: calc(100% - 300px);
-  height: calc(100vh - 190px);
-  background-color: #fafafa;
+  height: 100vh;
   float: right;
   .main_header {
-    background-color: #ffffff;
     height: 100px;
     padding: 0 40px;
     display: flex;
@@ -107,12 +104,9 @@
 }
 
 .messages {
-  background-color:#fafafa;
   height: calc(100vh - 190px);
-  padding: 40px 40px;
   overflow: scroll;
   .message {
-    height: 110px;
     padding-bottom: 40px;
     &__upper-info {
       height: 30px;
@@ -126,7 +120,6 @@
         font-weight: bold;
       }  
       &__date {
-        width: 100px;
         height: 24px;
         color: #999999;
         font-size: 12px;
