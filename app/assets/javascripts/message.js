@@ -17,7 +17,7 @@ $(function(){
                   ${message.content}
                 </p>
               </div>
-              <img src=${message.image.url} >
+              <img src=${message.image} >
             </div>`
           return html;
         } else {
